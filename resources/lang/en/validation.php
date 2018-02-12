@@ -103,6 +103,9 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'email' => [
+            'require' => '邮箱地址不对',
+        ],
     ],
 
     /*
