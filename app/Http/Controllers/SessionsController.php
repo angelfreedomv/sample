@@ -9,6 +9,16 @@ use Auth;
 
 class SessionsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', [
+            'except' => ['show', 'create', 'store']
+        ]);
+
+        $this->middleware('guest', [
+            'only' => ['create']
+        ]);
+    }
     public function create()
     {
         return view('sessions.create');
@@ -36,4 +46,5 @@ class SessionsController extends Controller
         session()->flash('success', '您已成功退出！');
         return redirect('login');
     }
+
 }
